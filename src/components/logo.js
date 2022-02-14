@@ -1,7 +1,7 @@
 function logo() {
   const logoContainer = document.createElement("div");
-  // logoContainer.style.backgroundImage = "url(./assets/logo.jpg)";
-  logoContainer.textContent = 'Logo';
+  logoContainer.className = "logo-container";
+  logoContainer.style.backgroundImage = "url(img/logo.jpg)";
   return logoContainer;
 }
 

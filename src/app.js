@@ -1,6 +1,7 @@
-import renderMainPage from "./mainPage";
+import mainPage from "./mainPage";
 import "./styles/style.css";
 
 const root = document.getElementById("root");
 root.className = "root";
-root.append(renderMainPage());
+document.body.style.backgroundImage = "url(img/background.jpg)";
+root.append(mainPage());
