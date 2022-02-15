@@ -1,6 +1,6 @@
-import logo from "./components/logo";
-import questionType from "./components/questionType";
-import button from "./components/button";
+import logo from "../components/logo";
+import questionType from "../components/questionType";
+import button from "../components/button";
 
 function mainPage() {
   const typeQuestionContainer = document.createElement("div");
