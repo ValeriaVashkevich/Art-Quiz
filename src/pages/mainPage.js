@@ -2,7 +2,10 @@ import logo from "../components/logo";
 import questionType from "../components/questionType";
 import button from "../components/button";
 
-function mainPage() {
+function mainPage(rerender) {
+  const mainPage = document.createElement("div");
+  mainPage.id = "main-page";
+
   const typeQuestionContainer = document.createElement("div");
   typeQuestionContainer.className = "type-question_container";
 
@@ -13,11 +16,16 @@ function mainPage() {
     questionType("url(img/pictures_quiz.jpg)", "pictures")
   );
 
-  const mainPage = document.createElement("div");
-  mainPage.id = "main-page";
+  const settingsButton = button("url(vector/settings.png)", "settings");
+  settingsButton.classList.add("settings-button");
+
+  settingsButton.onclick = () => {
+    rerender();
+  };
+
   mainPage.append(logo());
   mainPage.append(typeQuestionContainer);
-  mainPage.append(button("url(vector/settings.png)", "settings"));
+  mainPage.append(settingsButton);
   return mainPage;
 }
 
