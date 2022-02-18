@@ -7,9 +7,18 @@ document.body.style.backgroundImage = "url(img/background.jpg)";
 const root = document.getElementById("root");
 root.className = "root";
 
-function renderSettingsPage() {
+function clearRoot() {
   root.innerHTML = null;
-  root.append(settingsPage());
+}
+
+function renderSettingsPage() {
+  clearRoot();
+  root.append(settingsPage(renderMainPage));
+}
+
+function renderMainPage() {
+  clearRoot();
+  root.append(mainPage(renderSettingsPage));
 }
 
 root.append(mainPage(renderSettingsPage));

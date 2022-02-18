@@ -16,6 +16,21 @@ function addVolumeFunktsional() {
   volumeRange.type = "range";
   volumeRange.value = "35";
 
+  function changeRange() {
+    let value = volumeRange.value;
+    volumeRange.style.background = `-webkit-linear-gradient(
+    left,
+    #660033 0%,
+    #660033 ${value},
+    #e5e5e5 ${value},
+    #e5e5e5 100%
+  )`;
+  }
+
+  volumeRange.oninput = () => {
+    changeRange();
+  };
+
   volumeBar.append(volumeIco);
   volumeBar.append(volumeRange);
 
@@ -29,8 +44,20 @@ function addTimerFunktsional() {
   const timerCheckbox = document.createElement("input");
   timerCheckbox.className = "timer-checkbox";
   timerCheckbox.type = "checkbox";
-  timerCheckbox.checked = "true";
-  timerCheckbox.style.backgroundImage = "url(vector/timer_check.svg)";
+  timerCheckbox.id = "checked";
+  if ((timerCheckbox.id = "checked")) {
+    timerCheckbox.style.backgroundImage = "url(vector/timer_check.svg)";
+  }
+
+  timerCheckbox.onclick = () => {
+    if (timerCheckbox.id === "checked") {
+      timerCheckbox.id = "nonchecked";
+      timerCheckbox.style.backgroundImage = "url(vector/timer_background.svg)";
+    } else {
+      timerCheckbox.id = "checked";
+      timerCheckbox.style.backgroundImage = "url(vector/timer_check.svg)";
+    }
+  };
 
   const timerSubtitle = document.createElement("span");
   timerSubtitle.className = "timer-subtitle";
@@ -42,7 +69,7 @@ function addTimerFunktsional() {
   return timerBar;
 }
 
-function settingsPage() {
+function settingsPage(rerender) {
   const settingsPage = document.createElement("div");
   settingsPage.id = "settings-page";
 
@@ -50,9 +77,6 @@ function settingsPage() {
 
   const settingsContainer = document.createElement("div");
   settingsContainer.className = "settings-container";
-
-  const buttonContainer = document.createElement("div");
-  buttonContainer.className = "button-container";
 
   settingsContainer.append(
     settingsType("url(img/volume_on.svg)", addVolumeFunktsional(), "volume")
@@ -65,8 +89,20 @@ function settingsPage() {
     )
   );
 
-  buttonContainer.append(button(null, "save"));
-  buttonContainer.append(button(null, "default"));
+  const buttonContainer = document.createElement("div");
+  buttonContainer.className = "button-container";
+
+  const saveButton = button(null, "save");
+
+  saveButton.onclick = () => {
+    alert("Settings seved");
+    rerender();
+  };
+
+  const defaultBatton = button(null, "default");
+
+  buttonContainer.append(saveButton);
+  buttonContainer.append(defaultBatton);
 
   settingsPage.append(logo());
   settingsPage.append(title);

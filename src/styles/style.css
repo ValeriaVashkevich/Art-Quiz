@@ -197,15 +197,11 @@ body {
 
 .timer-checkbox {
   -webkit-appearance: none;
-  display: inline-block;
   width: 30px;
   height: 30px;
   margin: 0;
   padding: 0;
-  vertical-align: top;
   border: 1px solid #660033;
-  box-sizing: border-box;
-  transition: 0.3s ease;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
