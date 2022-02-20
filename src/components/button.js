@@ -6,7 +6,7 @@ function button(ico, content) {
   const buttonImg = document.createElement("div");
   buttonImg.className = "button-img";
   if (!ico) {
-    buttonImg.className = "button-img_undefined";
+    buttonImg.className = "button-img_null";
   }
   buttonImg.style.backgroundImage = ico;
   const buttonContent = document.createElement("span");
