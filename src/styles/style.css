@@ -169,11 +169,6 @@ body {
   height: fit-content;
   -webkit-appearance: none;
   appearance: none;
-}
-
-.volume-range::-webkit-slider-runnable-track {
-  height: 5.7px;
-  border-radius: 2px;
   background: -webkit-linear-gradient(
     left,
     #660033 0%,
@@ -181,6 +176,11 @@ body {
     #e5e5e5 35%,
     #e5e5e5 100%
   );
+}
+
+.volume-range::-webkit-slider-runnable-track {
+  height: 5.7px;
+  border-radius: 2px;
 }
 
 .volume-range::-webkit-slider-thumb {

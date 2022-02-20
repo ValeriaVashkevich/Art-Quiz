@@ -3,7 +3,7 @@ import pagesTitle from "../components/pagesTitle";
 import settingsType from "../components/settingsType";
 import button from "../components/button";
 
-function addVolumeFunktsional() {
+function addVolumeFunctional() {
   const volumeBar = document.createElement("div");
   volumeBar.classList = "volume-bar";
 
@@ -21,8 +21,8 @@ function addVolumeFunktsional() {
     volumeRange.style.background = `-webkit-linear-gradient(
     left,
     #660033 0%,
-    #660033 ${value},
-    #e5e5e5 ${value},
+    #660033 ${value}%,
+    #e5e5e5 ${value}%,
     #e5e5e5 100%
   )`;
   }
@@ -37,25 +37,21 @@ function addVolumeFunktsional() {
   return volumeBar;
 }
 
-function addTimerFunktsional() {
+function addTimerFunctional() {
   const timerBar = document.createElement("div");
   timerBar.classList = "timer-bar";
 
   const timerCheckbox = document.createElement("input");
   timerCheckbox.className = "timer-checkbox";
   timerCheckbox.type = "checkbox";
-  timerCheckbox.id = "checked";
-  if ((timerCheckbox.id = "checked")) {
-    timerCheckbox.style.backgroundImage = "url(vector/timer_check.svg)";
-  }
+  timerCheckbox.checked = true;
+  timerCheckbox.style.backgroundImage = "url(vector/timer_check.svg)";
 
   timerCheckbox.onclick = () => {
-    if (timerCheckbox.id === "checked") {
-      timerCheckbox.id = "nonchecked";
-      timerCheckbox.style.backgroundImage = "url(vector/timer_background.svg)";
-    } else {
-      timerCheckbox.id = "checked";
+    if (timerCheckbox.checked) {
       timerCheckbox.style.backgroundImage = "url(vector/timer_check.svg)";
+    } else {
+      timerCheckbox.style.backgroundImage = null;
     }
   };
 
@@ -79,12 +75,12 @@ function settingsPage(rerender) {
   settingsContainer.className = "settings-container";
 
   settingsContainer.append(
-    settingsType("url(img/volume_on.svg)", addVolumeFunktsional(), "volume")
+    settingsType("url(img/volume_on.svg)", addVolumeFunctional(), "volume")
   );
   settingsContainer.append(
     settingsType(
       "url(img/timer_picture.svg)",
-      addTimerFunktsional(),
+      addTimerFunctional(),
       "time game"
     )
   );
