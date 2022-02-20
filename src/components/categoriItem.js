@@ -1,6 +1,11 @@
 function categoriItem(number, title, image) {
   const categoriItem = document.createElement("div");
   categoriItem.className = "categori-item";
+  categoriItem.classList.add("disabled-categori");
+
+  categoriItem.onclick = () => {
+    categoriItem.classList.remove("disabled-categori");
+  };
 
   const categoriNumber = document.createElement("div");
   categoriNumber.className = "categori-number";
